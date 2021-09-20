@@ -1,0 +1,72 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+	double a = 2.5,
+		x0 = 1.0,
+		xN = 5.0,
+		dX = 0.5,
+		x;
+
+	for (x = 1.0; x <= xN; x += dX)
+	{
+		if (x < a)
+		{
+			cout << "3. \t" << (exp(-a * x) * cos(a * x)) << endl;
+
+		}
+		else if (x == a)
+			{
+				cout << "2. \t" << (x * sin(a * x)) << endl;
+			}
+		
+		else
+		{
+			cout << "1. \t" << (x * x * x * (sqrt(x - a))) << endl;
+		}
+	}
+
+	/*x = x0;
+	while (x <= xN)
+	{
+		if (x < a)
+		{
+			cout << "3. \t" << (exp(-a * x) * cos(a * x)) << endl;
+
+		}
+		else if (x == a)
+			{
+				cout << "2. \t" << (x * sin(a * x)) << endl;
+			}
+		
+		else
+		{
+			cout << "1. \t" << (x * x * x * (sqrt(x - a))) << endl;
+		}
+		x += dX;
+	}
+
+	x = x0;
+	do
+	{
+		if (x < a)
+		{
+			cout << "3. \t" << (exp(-a * x) * cos(a * x)) << endl;
+
+		}
+		else if (x == a)
+			{
+				cout << "2. \t" << (x * sin(a * x)) << endl;
+			}
+		
+		else
+		{
+			cout << "1. \t" << (x * x * x * (sqrt(x - a))) << endl;
+		}
+		x += dX;
+	} while (x <= xN);*/
+
+	return 0;
+}

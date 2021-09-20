@@ -1,0 +1,26 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+	int n = 0;
+	double x = 0.0,
+		maxX = 3.0,
+		sum = 0.0,
+		product = 0.0,
+		deltaX = 0.5;
+
+	cout << " Enter n: " << endl;
+	cin >> n;
+
+	for (x = 0; x <= maxX; x += deltaX)
+	{
+		for (int j = n; j != 0; j--)
+		{
+			product += pow((-1), j) * j * pow(x, j);
+		}
+		sum += product;
+	}
+	cout << " result= " << sum << endl;
+	return 0;
+}

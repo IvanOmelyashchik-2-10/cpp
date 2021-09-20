@@ -1,0 +1,41 @@
+#include<iostream>
+#include<string.h>
+#include<string>
+#include<windows.h>
+using namespace std;
+int main()
+{
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	string arr, arr1;
+	cout << "Введите вашу строку\n";
+	getline(cin, arr, '$');
+	arr1 = arr;
+	int max = arr.length();
+	for (int i = 0; i < max - 1; i++)
+	{
+		for (int j = i + 1; j < max - 1; j++)
+		{
+			if (arr[i] == arr[j])
+			{
+				arr.erase(j, 1);
+				max--;
+			}
+		}
+	}
+	cout << arr;
+	cout << endl;
+	string vowels = { 'а','е','ё','и','о','у','ы','э','ю','я' };
+	int max1 = arr1.length();
+	for (int i = 0; i < 10; i++)
+	{
+		for (int j = 0; j < max; j++)
+		{
+			if (arr1[j] == vowels[i])
+			{
+				cout << arr[j] << "\t";
+			}
+		}
+	}
+	
+}

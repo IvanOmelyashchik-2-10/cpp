@@ -1,0 +1,125 @@
+#include<iostream>
+#include<stdlib.h>
+#include<ctime>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	int n = 0;
+	cout << "Введите кол-во строк:";
+	cin >> n;
+	cout << "Заполните матрицу:" << endl;
+
+	srand(time(NULL));
+	int **arr= new int*[n];
+	for (int i = 0; i < n; i++)
+	{
+		arr [i] = new int [n];
+	}
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			arr[i][j] = rand() % 10;
+		}
+	}
+	cout << " Матрица:\n";
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			cout << arr[i][j] << "\t";
+		}
+			cout << endl;	
+	}
+	cout << endl;
+	int  maxg, maxp, x = 0;
+	maxp = arr[0][0];
+	for (int i = 0; i < n; i++)
+	{	 
+			if (arr[i][i] > maxp)
+			{
+				maxp = arr[i][i];
+				x = i;
+			}	
+	}
+	
+	for (int i = 0; i < n; i++)
+	{
+		if (arr[0 + i][n - 1 -i] > maxp) 
+		{
+			maxp = arr[0+i][n - 1 - i];
+			x = i;
+		}
+
+	}
+	for (int j = 0; j < n; j++)
+	{
+		cout << arr[x][j] << "\t";
+	}
+	cout << endl;
+	//------------------------------------------------
+
+	int** arr1 = new int* [n];
+	for (int i = 0; i < n; i++)
+	{
+		arr1[i] = new int[n];
+	}
+
+	cout << "enter n: ";
+	cin >> n;
+	cout << "enter matrix: " << endl;
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			cin >> arr1[i][j];
+		}
+	}
+
+	cout << "our matrix: " << endl;
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			cout << arr1[i][j] << "\t";
+		}
+		cout << endl;
+	}
+
+	int sum = 0, sum1 = 0;
+	bool isOrtonorm = true;
+	for (int i = 0; i < n - 1; i++)
+	{	
+		for (int k = i; k < n; k++)
+		{
+			if (k == i)
+			{
+				for (int j = 0; j < n; j++)
+				{
+					sum1 += arr1[i][j] * arr1[k][j];
+				}
+				if (sum1 != 1)
+				{
+					isOrtonorm = false;
+					break;
+				}
+				sum1 = 0;
+			}
+			else
+			{
+				for (int j = 0; j < n; j++)
+				{
+					sum += (arr1[i][j] * arr1[k][j]);
+				}
+				if (sum != 0)
+				{
+					isOrtonorm = false;
+					break;
+				}
+			}
+		}
+	}
+	isOrtonorm ? cout << "ortonorm" : cout << "not ortonotm";
+	return 0;
+}

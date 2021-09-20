@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	int
+		N = 255,
+		sum = 0,
+		i = 1,
+		j = 1,
+		NumberMaxCurrent = 1;
+	while (sum < N)
+	{
+		sum = i + j;
+		i = j;
+		j = sum;
+		NumberMaxCurrent++;
+	}
+	
+	cout << " Max Number:" << NumberMaxCurrent << endl;
+	return 0;
+				
+}

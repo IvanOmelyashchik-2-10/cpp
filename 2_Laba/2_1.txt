@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int inputNumber = 0;
+
+    cout << "input number\n";
+    cin >> inputNumber;
+
+    int modul,
+        currentNumber,
+        curentCounter = 0,
+        maxCounter = 0,
+        flag = 0;
+
+    for (int i = 0; i < 10; i++)
+    {
+        currentNumber = inputNumber;
+        for (; currentNumber != 0; currentNumber /=  10)
+        {
+            modul = currentNumber % 10;
+            if (i == modul)
+            {
+                curentCounter++;
+            }
+        }
+        if (curentCounter >= maxCounter)
+        {
+            if (curentCounter == 2)
+            {
+                flag++;
+            }
+            maxCounter = curentCounter;
+        }
+        curentCounter = 0;
+    }
+
+    maxCounter == 2 && flag == 1 ? cout << "true" : cout << "false";
+
+    return 0;
+}

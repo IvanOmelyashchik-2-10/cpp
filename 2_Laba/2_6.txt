@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	int N=0,
+		modul=0,
+		curentN=0;
+	cout << "Enter Number:" << endl;
+	cin >> N;
+	cout << " Vivod " << endl;
+	for (; N != 0; N--)
+		{
+		if (N > 10)
+		{
+			modul = N % 10;
+			curentN = N / 10;
+			if (curentN > modul)
+				cout << N << endl;
+		}
+		else
+			cout << N << endl;
+		}	
+	return 0;
+}

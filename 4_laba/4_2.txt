@@ -1,0 +1,45 @@
+#include<iostream>
+#include<string.h>
+#include<string>
+#include<windows.h>
+using namespace std;
+int main()
+{
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	string razd = " ";
+	string arr;
+	cout << "Введите вашу строку\n";
+	getline(cin, arr, '@');
+	size_t pos = 0;
+	size_t arr_size = arr.size();
+	size_t razd_size = razd.size();
+	string currentString;
+	bool correct = true;
+	while (pos < arr_size)
+	{
+		currentString = currentString.assign(arr, pos, arr.find(razd, pos) - pos);
+		if (currentString.size() > 0)
+		{
+			for (int i = 0; i < currentString.size() - 1; i++)
+			{
+				for (int j = i + 1; j < currentString.size(); j++)
+				{
+					if (currentString[i] == currentString[j])
+					{
+						correct = false;
+						break;
+					}
+				}
+			}
+			if (correct)
+			{
+				cout << currentString << " ";
+			}
+			
+			pos += currentString.size() + razd_size;
+		}
+	}
+	
+	return 0;
+}

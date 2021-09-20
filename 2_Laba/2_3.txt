@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int m = 0,
+        n = 0,
+        counter = 0,
+        maxDividers = 0,
+        result;
+
+    
+    cout << "input n: " << endl;
+    cin >> n;
+
+    cout << "input m: " << endl;
+    cin >> m;
+
+    for (int i = n; i <= m; i++)
+    {
+        for(int j = 1; j < i / 2 + 1; j++)
+        {
+            if (i % j == 0)
+            {
+                counter++;
+            }
+        }
+        if (counter > maxDividers)
+        {
+            maxDividers = counter;
+            result = i;
+        }
+        counter = 0;
+    }
+    cout << result;
+}

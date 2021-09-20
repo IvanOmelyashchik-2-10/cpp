@@ -1,0 +1,82 @@
+#include <iostream>
+
+using namespace std;
+const int SZ = 5;
+int main()
+{
+	int maxN = 0 , sum = 0, x = 0, y = 0, arr[SZ];
+	for (int i = 0; i < SZ; i++)
+	{
+		cout << " Input number:";
+		cin >> arr[i];
+	}
+	for (int i = 0; i < SZ; i++)
+	{
+		cout << arr[i] << endl;
+	}
+	int minN = arr[0];
+	for (int i = 0; i < SZ; i++)
+	{
+		if (maxN < arr[i])
+		{
+			maxN = arr[i];
+			y = i; // номер максимального значения 
+		}	
+		if (minN > arr[i])
+		{
+			minN = arr[i];
+			x = i; ////Номер минимального значения
+		}
+		
+	}
+	cout << "Minimal = " << minN << endl << "Maximum  = " << maxN << endl;
+	cout << "Number max=" << y << endl << "Number min=" << x << endl;
+	
+	/*for (arr[y]; arr[y] >= arr[x]; arr[y]--)
+	{
+		sum += arr[y];
+	}
+	cout << sum;*/
+	if (y > x)
+	{
+		for (int i = x; i <= y; i++)
+		{
+			sum += arr[i];
+		}
+	}
+	else
+	{
+		for (int i = y; i <= x; i++)
+		{
+			sum += arr[i];
+		}
+	}
+		
+	
+	cout << "amount = " << sum;
+	/*if (maxN > minN)
+	{
+		for (int i = minN; i < maxN; ++i)
+		{
+			sum += arr[i];
+		}
+	}
+	else
+	{
+		for (int i = maxN; i <= minN; ++i)
+		{
+			sum += arr[i];
+		}
+	}
+	
+	for (int i = 0; i < SZ; i++)
+	{
+		if (arr[i] < arr[maxN])
+		{
+			sum += arr[i];
+		}
+	}
+	cout << " Amount:" << sum;
+	*/
+	return 0;
+}

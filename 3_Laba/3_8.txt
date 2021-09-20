@@ -1,0 +1,97 @@
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    int N = 0;
+    cout << "Введите размерность матрицы:";
+    cin >> N;
+    double A[100][100], B1[50][50], B2[50][50], B3[50][50], B4[50][50];
+    srand(time(0));
+
+    cout << "Первая матрица:" << endl;
+    for (int i = 0; i < 2 * N; i++)
+    {
+        for (int j = 0; j < 2 * N; j++)
+        {
+            A[i][j] = rand() % 10 + 1;
+            cout << A[i][j] << "\t";
+        }
+        cout << endl;;
+    }
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            B1[i][j] = A[i][j];
+        }
+    }
+
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = N, m = 0; j < 2 * N; j++, m++)
+        {
+            B2[i][m] = A[i][j];
+        }
+    }
+
+    for (int i = N, k = 0; i < 2 * N; i++, k++)
+    {
+        for (int j = N, m = 0; j < 2 * N; j++, m++)
+        {
+            B3[k][m] = A[i][j];
+        }
+    }
+
+    for (int i = N, k = 0; i < 2 * N; i++, k++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            B4[k][j] = A[i][j];
+        }
+    }
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            A[i][j] = B4[i][j];
+        }
+    }
+
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = N, k = 0; j < 2 * N; j++, k++)
+        {
+            A[i][j] = B1[i][k];
+        }
+    }
+
+    for (int i = N, k = 0; i < 2 * N; i++, k++)
+    {
+        for (int j = N, m = 0; j < 2 * N; j++, m++)
+        {
+            A[i][j] = B2[k][m];
+        }
+    }
+
+    for (int i = N, k = 0; i < 2 * N; i++, k++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            A[i][j] = B3[k][j];
+        }
+    }
+
+    cout << endl << "Наша новая матрица:" << endl;
+    for (int i = 0; i < 2 * N; i++)
+    {
+        for (int j = 0; j < 2 * N; j++)
+        {
+            cout << A[i][j] << "\t";
+        }
+        cout << endl;
+    }
+    return 0;
+}
